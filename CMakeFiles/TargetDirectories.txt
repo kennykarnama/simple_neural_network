@@ -1,0 +1,3 @@
+/home/kenny/latihan_c++/neural_network_test/CMakeFiles/rebuild_cache.dir
+/home/kenny/latihan_c++/neural_network_test/CMakeFiles/neural_network_test.dir
+/home/kenny/latihan_c++/neural_network_test/CMakeFiles/edit_cache.dir
