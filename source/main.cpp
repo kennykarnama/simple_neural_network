@@ -10,6 +10,7 @@
 #include "chrono"
 #include "random"
 #include <ctime>
+#include <fstream>
 
 
 int main(int argc, char const *argv[])
@@ -25,7 +26,16 @@ int main(int argc, char const *argv[])
 
 	 std::replace(sekarang.begin(),sekarang.end(),' ','_');
 
+	 string namaFile = "percobaan_"+sekarang+".txt";
+
+
+
 	std::cout << "TRAINING START AT " << sekarang << std::endl;
+
+	ofstream a_file (namaFile,ios::app);
+
+	a_file<<"Percobaan " << sekarang << "\n";
+
 
 
 	/* code */
@@ -44,13 +54,15 @@ int main(int argc, char const *argv[])
 
 	nn.init(784,100,26,0.01);
 
+	 a_file << "784,100,26,0.01,5000" << "\n";
+
 	double before =  0.0;
 
 	double current = 0.0;
 
 	// iterasi sepanjang epoch
 
-	int maxEpoch = 5000;
+	int maxEpoch = 10;
 
 	for (int e = 0; e < maxEpoch; ++e)
 	{
@@ -256,6 +268,8 @@ int main(int argc, char const *argv[])
 
 	double akurasi = ((jumlahBenar * 1.0) / (jumlahKasusUji * 1.0)) * 100;
 
+	a_file << "t_" << std::to_string(e) << "," << std::to_string(mse) << "," << std::to_string(akurasi) << "%" << "\n"; 
+
 	std::cout << "Akurasinya adalah " << akurasi << " % " << std::endl;
 	
 
@@ -372,7 +386,9 @@ int main(int argc, char const *argv[])
 
 	std::cout << "Akurasinya adalah " << akurasi << " % " << std::endl;
 
+	a_file <<"akurasi_testing "<< akurasi << "\n";
 
+	a_file.close();
 	
 	
 

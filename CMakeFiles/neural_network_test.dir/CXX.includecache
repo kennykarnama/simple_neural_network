@@ -39,6 +39,8 @@ random
 /home/kenny/latihan_c++/neural_network_test/source/random
 ctime
 -
+fstream
+-
 
 /home/kenny/latihan_c++/neural_network_test/source/mytraining.cpp
 mytraining.h
